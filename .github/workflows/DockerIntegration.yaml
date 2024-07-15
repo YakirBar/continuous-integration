@@ -1,3 +1,31 @@
+name: Continuous Integration by EC2 Instance
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Local_Image:
+    runs-on: self-hosted 
+
+    steps:
+      - name: Git Pull
+        run: cd /home/ec2-user/continuous-integration && git pull
+
+      - name: Build Docker Image
+        run: sudo docker build -t local_image:0.1 /home/ec2-user/continuous-integration/app
+
+      - name: List Docker Images
+        run: sudo docker images
+      
+      - name: Run Docker Container
+        run: sudo docker run -d --name local_container -p 9002:9001 local_image:0.1
+
+      - name: List Docker Processes
+        run: sudo docker ps
+
+
 # name: Docker Build and Push
 
 # on:
