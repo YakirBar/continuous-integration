@@ -10,5 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Hello World
-        run: echo "Hello, World!"
+      - name: ls command
+        run: ls
+
+      - name: Touch yakir.txt
+        run: echo "Hello, Yakir!" > yakir.txt
+        
+      - name: ls command
+        run: ls
+  
+  pwd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print pwd
+        run: pwd
