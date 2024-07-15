@@ -28,8 +28,7 @@ jobs:
           context: ./app  # Path to the Dockerfile and build context
           push: true
           tags: |
-            yakirbartech/continuous-integration:0.2
-            yakirbartech/continuous-integration:${{ github.sha }}
+            yakirbartech/continuous-integration:0.3
 
       - name: Logout from Docker Hub
         run: docker logout
